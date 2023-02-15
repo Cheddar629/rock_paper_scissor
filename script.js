@@ -16,3 +16,32 @@ function getComputerChoice(){
 }
 getComputerChoice()
 
+function playMatch(playerSelection, computerSelection){
+    if(playerSelection === "Rock" && computerSelection === "Paper"){
+        return "You Lose! Paper beats Rock"
+    }
+    if(playerSelection === "Rock" && computerSelection === "Scissor"){
+        return "You Win! Rock beats Scissor"
+    }
+    if(playerSelection === "Rock" && computerSelection === "Rock"){
+        return "You Tie! Both of you chose Rock!"
+    }
+    if(playerSelection === "Paper" && computerSelection === "Scissor"){
+        return "You Lose! Scissor beats Paper"
+    }
+    if(playerSelection === "Paper" && computerSelection === "Paper"){
+        return "You Tie! Both of you chose Paper!"
+    }
+    if(playerSelection === "Paper" && computerSelection === "Rock"){
+        return "You Win! Paper beats Rock"
+    }
+    if(playerSelection === "Scissor" && computerSelection === "Paper"){
+        return "You Win! Scissor beats Paper"
+    }
+    if(playerSelection === "Scissor" && computerSelection === "Rock"){
+        return "You Lose! Rock beats Scissor"
+    }
+    if(playerSelection === "Scissor" && computerSelection === "Scissor"){
+        return "You Tie! Both of you chose Scissor!"
+    }
+}
