@@ -15,6 +15,9 @@ function getComputerChoice(){
 getComputerChoice()
 
 function playMatch(playerSelection, computerSelection){
+    playerSelection = caseCorrection(playerSelection)
+    computerSelection = caseCorrection(computerSelection)
+    
     if(playerSelection === "Rock" && computerSelection === "Paper"){
         return "You Lose! Paper beats Rock"
     }
@@ -48,3 +51,4 @@ function caseCorrection(string){
     new_string = string[0].toUpperCase() + string.substr(1).toLowerCase()
     return new_string
 }
+
