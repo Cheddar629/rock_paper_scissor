@@ -12,12 +12,11 @@ function getComputerChoice(){
         return choice
     }
 }
-getComputerChoice()
 
 function playMatch(playerSelection, computerSelection){
     playerSelection = caseCorrection(playerSelection)
     computerSelection = caseCorrection(computerSelection)
-    
+
     if(playerSelection === "Rock" && computerSelection === "Paper"){
         return "You Lose! Paper beats Rock"
     }
@@ -52,3 +51,13 @@ function caseCorrection(string){
     return new_string
 }
 
+function game(){
+    console.log("Hello, you will now play 5 matches of rock-paper-scissor against the computer!")
+    let user_choice 
+    for(let i = 1; i <= 5; i++){
+        user_choice = prompt("What option are you going to choose: Rock, Paper or Scissor?")
+        console.log(playMatch(user_choice, getComputerChoice()))
+    }
+}
+
+game()
