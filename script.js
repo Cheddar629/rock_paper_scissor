@@ -18,19 +18,19 @@ function playMatch(playerSelection, computerSelection){
     computerSelection = caseCorrection(computerSelection)
 
     if(playerSelection === "Rock" && computerSelection === "Paper"){
-        return "You Lose! Paper beats Rock"
+        return "You Lose! Paper beats Rock";
     }
     if(playerSelection === "Rock" && computerSelection === "Scissor"){
-        return "You Win! Rock beats Scissor"
+        return "You Win! Rock beats Scissor";
     }
     if(playerSelection === "Rock" && computerSelection === "Rock"){
         return "You Tie! Both of you chose Rock!"
     }
     if(playerSelection === "Paper" && computerSelection === "Scissor"){
-        return "You Lose! Scissor beats Paper"
+        return "You Lose! Scissor beats Paper";
     }
     if(playerSelection === "Paper" && computerSelection === "Paper"){
-        return "You Tie! Both of you chose Paper!"
+        return "You Tie! Both of you chose Paper!";
     }
     if(playerSelection === "Paper" && computerSelection === "Rock"){
         return "You Win! Paper beats Rock"
@@ -60,4 +60,19 @@ function game(){
     }
 }
 
-game()
+const rockOp = document.querySelector('#rock')
+// rockOp.addEventListener('click', playMatch('Rock', getComputerChoice()));
+rockOp.addEventListener('click', () => {
+    return console.log(playMatch("Rock", getComputerChoice()));
+});
+
+const paperOp = document.querySelector('#paper')
+paperOp.addEventListener('click', () => {
+    let result = console.log(playMatch("Paper", getComputerChoice()))
+    return result
+});
+
+const scissorOp = document.querySelector('#scissor')
+scissorOp.addEventListener('click', () => {
+    return console.log(playMatch("Scissor", getComputerChoice()))
+});
