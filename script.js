@@ -1,19 +1,18 @@
 let your_score = 0;
 let comp_score = 0;
-const matchResult = document.querySelector('.matchResult')
-const counter = document.querySelector('.counter')
 const roundResult = document.querySelector('.roundResult')
+const counter = document.querySelector('.counter')
+const matchResult = document.querySelector('.matchResult')
 const p1 = document.querySelector('.p1')
 const p2 = document.querySelector('.p2')
 
 const rock_btn = document.querySelector('#rock')
-// rockOp.addEventListener('click', playMatch('Rock', getComputerChoice()));
 rock_btn.addEventListener('click', () => {
     counterResultReset()
     message = playMatch("Rock", getComputerChoice())
-    matchResult.textContent = message;
+    roundResult.textContent = message;
     scoreCalculator(message)
-    counter.textContent = "The match's score is: " + your_score + "-" + comp_score;
+    counter.textContent = your_score + "-" + comp_score;
     scoreEnder()                               
 });
 
@@ -21,9 +20,9 @@ const paper_btn = document.querySelector('#paper')
 paper_btn.addEventListener('click', () => {
     counterResultReset()
     message = playMatch("Paper", getComputerChoice())
-    matchResult.textContent = message;
+    roundResult.textContent = message;
     scoreCalculator(message) 
-    counter.textContent = "The match's score is: " + your_score + "-" + comp_score;
+    counter.textContent = your_score + "-" + comp_score;
     scoreEnder()    
 });
 
@@ -31,9 +30,9 @@ const scissor_btn = document.querySelector('#scissor')
 scissor_btn.addEventListener('click', () => {
     counterResultReset()
     message = playMatch("Scissor", getComputerChoice())
-    matchResult.textContent = message;
+    roundResult.textContent = message;
     scoreCalculator(message)
-    counter.textContent = "The match's score is: " + your_score + "-" + comp_score;
+    counter.textContent = your_score + "-" + comp_score;
     scoreEnder()    
 });
 
@@ -58,31 +57,31 @@ function playMatch(playerSelection, computerSelection){
     computerSelection = caseCorrection(computerSelection)
 
     if(playerSelection === "Rock" && computerSelection === "Paper"){
-        return "You Lose! Paper beats Rock";
+        return "The computer chose Paper\r\n You lose this round!";
     }
     if(playerSelection === "Rock" && computerSelection === "Scissor"){
-        return "You Win! Rock beats Scissor";
+        return "The computer chose Scissor\r\n You win this round!";
     }
     if(playerSelection === "Rock" && computerSelection === "Rock"){
-        return "You Tie! Both of you chose Rock!"
+        return "The computer chose Rock\r\nYou tie this round!"
     }
     if(playerSelection === "Paper" && computerSelection === "Scissor"){
-        return "You Lose! Scissor beats Paper";
+        return "The computer chose Scissor\r\nYou lose this round!";
     }
     if(playerSelection === "Paper" && computerSelection === "Paper"){
-        return "You Tie! Both of you chose Paper!";
+        return "The computer chose Paper\r\nYou tie this round!";
     }
     if(playerSelection === "Paper" && computerSelection === "Rock"){
-        return "You Win! Paper beats Rock"
+        return "The computer chose Rock\r\n You win this round!"
     }
     if(playerSelection === "Scissor" && computerSelection === "Paper"){
-        return "You Win! Scissor beats Paper"
+        return "The computer chose Paper\r\nYou win this round!"
     }
     if(playerSelection === "Scissor" && computerSelection === "Rock"){
-        return "You Lose! Rock beats Scissor"
+        return "The computer chose Rock\r\nYou lose this round!"
     }
     if(playerSelection === "Scissor" && computerSelection === "Scissor"){
-        return "You Tie! Both of you chose Scissor!"
+        return "The computer chose Scissor\r\nYou tie this round!"
     }
 }
 
@@ -92,10 +91,10 @@ function caseCorrection(string){
 }
 
 function scoreCalculator(message) {
-    if (message.includes('Win')) {
+    if (message.includes('win')) {
         your_score += 1;
         return your_score
-    } else if (message.includes('Lose')) {
+    } else if (message.includes('lose')) {
         comp_score += 1;
         return comp_score
     }
@@ -103,6 +102,10 @@ function scoreCalculator(message) {
 
 function scoreEnder() {
     if (your_score === 5) {
+        roundResult.textContent = ""
+        counter.textContent = ""
+        p1.style.color = 'green'
+        p2.style.color = 'green'
         p1.textContent = "You have won the match!"
         p2.textContent = your_score + "-" + comp_score
 
@@ -110,7 +113,11 @@ function scoreEnder() {
         comp_score = 0;
     }
     if (comp_score === 5) {
-        p1.textContent = "You have won the match!"
+        roundResult.textContent = ""
+        counter.textContent = ""
+        p1.style.color = 'red'
+        p2.style.color = 'red'
+        p1.textContent = "You have lost the match!"
         p2.textContent = your_score + "-" + comp_score
 
         your_score = 0;

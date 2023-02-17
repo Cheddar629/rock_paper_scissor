@@ -2,18 +2,31 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Document</title>
+        <title>THE GAME</title>
+        <link rel="stylesheet" href="stylesheet.css">
         <script src="script.js" defer></script>
     </head>
     <body>
+        <h1>Rock Paper Scissor Game</h1>
+        <p id="intro">You will have to fight the computer to a rock-paper-scissor game</p>
+        <p id="intro">Best of 5 wins!</p>
         <div class="container">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissor">Scissor</button>
+            <div class="box1">
+                <img id='rock' src="images/rock.jpg" alt="Rock">
+                <p id="info">ROCK</p>
+            </div>
+            <div class="box2">
+                <img id="paper" src="images/paper.jpg" alt="Paper">
+                <p id="info">PAPER</p>
+            </div>
+            <div class="box3">
+                <img id="scissor" src="images/scissor.jpg" alt="Scissor">
+                <p id="info">SCISSOR</p>
+            </div>
         </div>
-        <div class="matchResult"></div>
+        <div class="roundResult"></div>
         <div class="counter"></div>
-        <div class="roundResult">
+        <div class="matchResult">
             <p class="p1"></p>
             <p class="p2"></p>
         </div>

@@ -1,0 +1,85 @@
+body {
+    height: 100vh;
+    margin: 0px;
+    background-color: beige;
+}
+
+h1 {
+    font-size: 64px;
+    text-align: center;
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
+    color: #5A5A5A;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#intro {
+    font-size: 30px;
+    text-align: center;
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
+    color: #5da581;
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    margin-top: 64px;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+.container p {
+    text-align: center;
+    margin-top: 10px;
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #5A5A5A;
+}
+
+img {
+    width: 200px;
+    height: 220px;
+    border-color: rgb(147, 198, 146);
+    border-style: solid;
+    border-width: 7px;
+}
+
+img:hover {
+    border-width: 9px;
+    border-color: rgb(83, 83, 219);
+}
+
+.roundResult {
+    white-space: pre;
+    text-align: center;
+    margin-top: 26px;
+    font-size: 50px;
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
+    color: #59467f;
+}
+
+.counter {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 68px;
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
+    color: rgb(128, 33, 125);
+}
+
+.matchResult {
+    font-family: Arial, sans-serif, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 69px;
+}
+
+.p1{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.p2{
+    margin-top: 24px;
+}
