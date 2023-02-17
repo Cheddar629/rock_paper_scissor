@@ -1,3 +1,43 @@
+let your_score = 0;
+let comp_score = 0;
+const matchResult = document.querySelector('.matchResult')
+const counter = document.querySelector('.counter')
+const roundResult = document.querySelector('.roundResult')
+const p1 = document.querySelector('.p1')
+const p2 = document.querySelector('.p2')
+
+const rock_btn = document.querySelector('#rock')
+// rockOp.addEventListener('click', playMatch('Rock', getComputerChoice()));
+rock_btn.addEventListener('click', () => {
+    counterResultReset()
+    message = playMatch("Rock", getComputerChoice())
+    matchResult.textContent = message;
+    scoreCalculator(message)
+    counter.textContent = "The match's score is: " + your_score + "-" + comp_score;
+    scoreEnder()                               
+});
+
+const paper_btn = document.querySelector('#paper')
+paper_btn.addEventListener('click', () => {
+    counterResultReset()
+    message = playMatch("Paper", getComputerChoice())
+    matchResult.textContent = message;
+    scoreCalculator(message) 
+    counter.textContent = "The match's score is: " + your_score + "-" + comp_score;
+    scoreEnder()    
+});
+
+const scissor_btn = document.querySelector('#scissor')
+scissor_btn.addEventListener('click', () => {
+    counterResultReset()
+    message = playMatch("Scissor", getComputerChoice())
+    matchResult.textContent = message;
+    scoreCalculator(message)
+    counter.textContent = "The match's score is: " + your_score + "-" + comp_score;
+    scoreEnder()    
+});
+
+
 function getComputerChoice(){
     let choice
     let random_num = Math.floor(Math.random() * 3)
@@ -51,28 +91,34 @@ function caseCorrection(string){
     return new_string
 }
 
-function game(){
-    console.log("Hello, you will now play 5 matches of rock-paper-scissor against the computer!")
-    let user_choice 
-    for(let i = 1; i <= 5; i++){
-        user_choice = prompt("What option are you going to choose: Rock, Paper or Scissor?")
-        console.log(playMatch(user_choice, getComputerChoice()))
+function scoreCalculator(message) {
+    if (message.includes('Win')) {
+        your_score += 1;
+        return your_score
+    } else if (message.includes('Lose')) {
+        comp_score += 1;
+        return comp_score
     }
 }
 
-const rockOp = document.querySelector('#rock')
-// rockOp.addEventListener('click', playMatch('Rock', getComputerChoice()));
-rockOp.addEventListener('click', () => {
-    return console.log(playMatch("Rock", getComputerChoice()));
-});
+function scoreEnder() {
+    if (your_score === 5) {
+        p1.textContent = "You have won the match!"
+        p2.textContent = your_score + "-" + comp_score
 
-const paperOp = document.querySelector('#paper')
-paperOp.addEventListener('click', () => {
-    let result = console.log(playMatch("Paper", getComputerChoice()))
-    return result
-});
+        your_score = 0;
+        comp_score = 0;
+    }
+    if (comp_score === 5) {
+        p1.textContent = "You have won the match!"
+        p2.textContent = your_score + "-" + comp_score
 
-const scissorOp = document.querySelector('#scissor')
-scissorOp.addEventListener('click', () => {
-    return console.log(playMatch("Scissor", getComputerChoice()))
-});
+        your_score = 0;
+        comp_score = 0;
+    }
+}
+
+function counterResultReset(){
+    p1.textContent = ""
+    p2.textContent = ""
+}
